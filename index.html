@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeCafe</title>
+    <title>Select Category</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="landing">
+<body>
 
-    <div class="landing-box">
-        <h1>☕ Welcome to CodeCafe</h1>
-        <p>Click • Order • Enjoy</p>
-        <button onclick="goNext()">Start Ordering</button>
+    <h1>Select Category</h1>
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+
+    <div class="category-container">
+        <div class="category-card" onclick="selectCategory('Burger')">🍔 Burger</div>
+        <div class="category-card" onclick="selectCategory('Cold Drinks')">🥤 Cold Drinks</div>
+        <div class="category-card" onclick="selectCategory('Pasta')">🍝 Pasta</div>
+        <div class="category-card" onclick="selectCategory('Noodles')">🍜 Noodles</div>
     </div>
 
-<script>
-    function goNext() {
-        localStorage.removeItem("cart");
-        window.location.href = "categories.html";
-    }
-</script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function selectCategory(category) {
+            localStorage.setItem("selectedCategory", category);
+            window.location.href = "order.html";
+        }
+    </script>
 
 </body>
 </html>
